@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var birthday = prompt("请输入你的生日（格式：xxxx xx xx,年月日用空格隔开）");
+    var birth = new Date(birthday);
+    var today = new Date();
+
+    var life = today - birth;
+    document.write("你在这个世上存活了" + Math.floor(life / 1000 / 60 / 60 / 24) + "天<br/>");
+    document.write("你在这个世上存活了" + Math.floor(life / 1000 / 60 / 60 / 24 / 365) + "年");
+</script>
+
+</html>

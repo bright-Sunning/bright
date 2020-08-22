@@ -1,0 +1,430 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 12px;
+    background-color: #f9f9f9;
+}
+
+a {
+    color: gray;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 1200px;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.clear::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.top-nav {
+    height: 35px;
+    line-height: 35px;
+}
+
+.top-nav .left a {
+    color: #2673f3;
+}
+
+.top-nav .right>ul>li {
+    padding-right: 15px;
+    padding-left: 5px;
+    float: left;
+    background: url("../images/down.jpg") right 10px no-repeat;
+}
+
+.top-nav .right>ul .line {
+    padding: 0;
+    margin-top: 12px;
+    margin-left: 5px;
+    height: 12px;
+    width: 1px;
+    background-color: gray;
+}
+
+.top-nav .right>ul .hand-on a {
+    padding-left: 25px;
+    background: url("../images/indexhead_sprite.png") -286px -231px no-repeat;
+}
+
+.top-nav .right>ul>li>ul li:first-of-type~li {
+    display: none;
+}
+
+.top-nav .right .track {
+    border: 1px solid transparent;
+}
+
+.top-nav .right .track:hover {
+    background-color: white;
+    border: 1px solid lightgray;
+}
+
+.top-nav .right>ul>li>ul li:first-of-type:hover~li {
+    display: block;
+}
+
+.search {
+    background-color: white;
+    height: 130px;
+}
+
+.search .logo {
+    width: 240px;
+    margin-top: 30px;
+}
+
+.search .left:nth-of-type(2) {
+    margin-top: 50px;
+}
+
+.search .left:nth-of-type(2) div p {
+    width: 528px;
+    height: 30px;
+    border: 2px solid #fe3c3c;
+}
+
+.search .left:nth-of-type(2) div p label {
+    display: inline-block;
+    height: 30px;
+    width: 80px;
+    line-height: 30px;
+    background-color: #f8f8f8;
+    text-align: center;
+    font-size: 14px;
+}
+
+.search .left:nth-of-type(2) div p input {
+    width: 340px;
+    height: 28px;
+    line-height: 28px;
+    border: none;
+    color: black;
+    outline: none;
+}
+
+.search .left:nth-of-type(2) div p button {
+    height: 30px;
+    width: 100px;
+    display: inline-block;
+    background-color: #fe3c3c;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.search ul li {
+    float: left;
+    margin-right: 10px;
+}
+
+.categories .categories-top ul {
+    margin-left: 240px;
+    height: 35px;
+    line-height: 35px;
+}
+
+.categories {
+    position: relative;
+}
+
+.categories .categories-top ul li {
+    float: left;
+    margin-right: 30px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.categories .categories-top ul li a {
+    color: black;
+}
+
+.categories .categories-top ul li:nth-of-type(-n+3) a {
+    color: red;
+}
+
+.categories .categories-middle {
+    height: 383px;
+    background: #e82a1e url("../images/banner0.jpg") no-repeat center;
+}
+
+.categories .categories-middle dl {
+    width: 210px;
+    color: white;
+    position: relative;
+    top: -35px;
+}
+
+.categories .categories-middle dl a {
+    color: white;
+}
+
+.categories .categories-middle dl dt {
+    line-height: 35px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #e82a1e;
+    padding-left: 55px;
+}
+
+.categories .categories-middle dl dd {
+    line-height: 32px;
+    padding-left: 38px;
+    background-image: url('../images/nav.png');
+    background-repeat: no-repeat;
+    background-color: #c13131;
+}
+
+.categories .categories-middle dl dd.list:hover {
+    background-color: darkred;
+}
+
+.categories .categories-middle .right {
+    width: 245px;
+    height: 382px;
+    background-color: white;
+}
+
+.categories .categories-middle .right ul {
+    width: 245px;
+    border-bottom: 1px dashed gray;
+}
+
+.categories .categories-middle .right ul li {
+    float: left;
+    text-align: center;
+    padding: 15px 0 15px 20px;
+}
+
+.categories .categories-middle .right .adv {
+    height: 80px;
+    line-height: 20px;
+    box-sizing: border-box;
+    padding: 10px 20px;
+}
+
+.categories .categories-middle .right .charge {
+    border: none;
+    border-top: 1px solid lightgray;
+}
+
+.categories .categories-middle .right .charge li {
+    width: 80px;
+    height: 30px;
+    padding: 0;
+    line-height: 30px;
+    background-color: #f7f7f7;
+    border-left: 1px solid lightgray;
+}
+
+.categories .categories-middle .right .charge li:hover {
+    background-color: white;
+    color: red;
+    cursor: pointer;
+}
+
+.categories .categories-middle .right form {
+    margin-top: 30px;
+}
+
+.categories .categories-middle .right form p:nth-of-type(1) {
+    padding-left: 35px;
+}
+
+.categories .categories-middle .right form p:nth-of-type(2) {
+    padding-left: 59px;
+}
+
+.categories .categories-middle .right form p:nth-of-type(3) {
+    padding-left: 59px;
+}
+
+.categories .categories-middle .right form select {
+    width: 120px;
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+.categories .categories-middle .right form input[type="text"],
+select {
+    width: 115px;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.categories .categories-middle .right form input[type="button"] {
+    margin: 25px 0 0 35px;
+    width: 80px;
+    height: 30px;
+    border: none;
+    background-color: #f8545b;
+    color: white;
+    cursor: pointer;
+}
+
+.categories .auto {
+    position: absolute;
+    bottom: 55px;
+    left: 764px;
+}
+
+.categories ul .point:first-of-type {
+    background-color: #fe3c3c;
+}
+
+.categories ul .point {
+    cursor: pointer;
+    float: left;
+    margin: 5px;
+    width: 10px;
+    height: 10px;
+    background-color: #cccccc;
+}
+
+.border {
+    border: 1px solid red;
+}
+
+.food .food-title {
+    margin-bottom: 5px;
+}
+
+.line {
+    width: 1px;
+    height: 12px;
+    margin-top: 3px;
+    background: gray;
+}
+
+.border-top {
+    border-top: 1px solid lightgray;
+}
+
+.food ul li {
+    margin-left: 10px;
+    float: left;
+}
+
+.chicken ul li {
+    margin-left: 10px;
+    float: left;
+}
+
+.food .food-content {
+    height: 360px;
+    background-color: white;
+    border-top: 2px solid orange;
+}
+
+.chicken {
+    margin-top: 40px;
+}
+
+.chicken .food-content {
+    height: 540px;
+}
+
+.food .food-content .left {
+    height: 360px;
+}
+
+.food .food-content .left:nth-of-type(1) {
+    width: 210px;
+}
+
+.food .food-content ul li {
+    line-height: 35px;
+    width: 80px;
+    border-bottom: 1px dashed lightgray;
+}
+
+.food .food-content h3 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.orange {
+    color: orange;
+}
+
+.green {
+    color: #add12f;
+}
+
+.food .food-content p {
+    text-align: center;
+    margin-top: 10px;
+    color: gray;
+}
+
+.food .food-content .border-right {
+    width: 234px;
+    border-right: 1px solid lightgray;
+}
+
+.food .food-content .border-bottom {
+    border-bottom: 1px solid lightgray;
+}
+
+#tissue>div {
+    width: 210px;
+}
+
+#home {
+    border-right: 1px solid lightgray;
+}
+
+#home div {
+    width: 164px;
+    height: 180px;
+}
+
+.food .food-content div.second {
+    height: 180px;
+}
+
+.footer {
+    margin-top: 40px;
+    background-color: white;
+}
+
+.footer ul {
+    width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer ul li {
+    display: inline;
+    line-height: 35px;
+}
+
+.footer p {
+    text-align: center;
+    line-height: 35px;
+    color: gray;
+}
+
+.footer ul li.line {
+    display: inline-block;
+    margin: 0 20px;
+}

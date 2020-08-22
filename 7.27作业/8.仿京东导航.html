@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        
+        body {
+            font-size: 12px;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .cate {
+            width: 200px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+        
+        .cate ul {
+            line-height: 30px;
+        }
+        
+        .cate ul li:hover {
+            background-color: rgba(221, 218, 218, 0.2);
+        }
+        
+        .cate_data {
+            width: 600px;
+            height: 200px;
+            position: absolute;
+            display: none;
+            left: 202px;
+            top: 0px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 5px #ddd;
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cate">
+        <ul>
+            <li>家用电器</li>
+            <li>手机/运营商/数码</li>
+            <li>电脑/办公</li>
+            <li>家居/家具/家装/厨具</li>
+            <li>男将/女装/童装/内衣</li>
+            <li>美妆/个护清洁/宠物</li>
+        </ul>
+        <div class="cate_data">
+            <dl><dt>电视</dt>
+                <dd>超薄电视全面屏电视智能电视教育电视OLED电视智慧屏4K超清电视55英寸65英寸电视配件</dd>
+            </dl>
+            <dl><dt>手机/运营商/数码</dt>
+                <dd>手机游戏手机5G手机拍照手机全面屏手机老人机对讲机以旧换新手机维修</dd>
+            </dl>
+            <dl><dt>电脑/办公</dt>
+                <dd>显示器CPU主板显卡硬盘内存机箱电源散热器显示器支架刻录机/光驱声卡/扩展卡装机配件SSD固态硬盘组装电脑USB分线器主板CPU套装</dd>
+            </dl>
+            <dl><dt>家居/家具/家装/厨具</dt>
+                <dd>水具酒具烹饪锅具炒锅碗碟套装厨房配件刀剪菜板锅具套装茶具咖啡具保温杯厨房置物架</dd>
+            </dl>
+            <dl><dt>男装/女装/童装/内衣</dt>
+                <dd>当季热卖新品推荐商场同款时尚套装连衣裙半身裙T恤衬衫休闲裤牛仔裤短外套卫衣小西装风衣针织衫雪纺衫大码女装中老年女装短裤正装裤马甲吊带/背心打底衫旗袍/汉服礼服婚纱毛衣羊绒衫羽绒服毛呢大衣棉服皮草仿皮皮衣真皮皮衣打底裤加绒裤设计师/潮牌</dd>
+            </dl>
+            <dl><dt>美妆/个护清洁/宠物</dt>
+                <dd>礼盒美白防晒面膜洁面爽肤水精华眼霜乳液/面霜卸妆T区护理润唇膏</dd>
+            </dl>
+        </div>
+    </div>
+</body>
+<script>
+    var cate_data = document.getElementsByClassName("cate_data")[0];
+    var li = document.getElementsByTagName("li");
+    var dd = document.getElementsByTagName("dd");
+    var dt = document.getElementsByTagName("dt");
+
+    for (var i = 0; i < li.length; i++) {
+        li[i].index = i;
+        li[i].onmouseover = function() {
+            for (var j = 0; j < li.length; j++) {
+                dt[j].style.display = "none";
+                dd[j].style.display = "none";
+            }
+            cate_data.style.display = "block";
+            dt[this.index].style.display = "block";
+            dd[this.index].style.display = "block";
+        }
+        li[i].onmouseout = function() {
+            cate_data.style.display = "";
+            dt[this.index].style.display = "";
+            dd[this.index].style.display = "";
+        }
+    }
+</script>
+
+</html>

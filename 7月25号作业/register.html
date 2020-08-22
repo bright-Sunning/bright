@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    input[type="text"],
+    input[type="password"] {
+        width: 150px;
+        height: 30px;
+    }
+</style>
+
+<body>
+    <form>
+        <table border="1" align="center" width="50%" height="400px" cellspacing="0">
+            <tr>
+                <td align="right">用户名:</td>
+                <td><input type="text" id="username"></td>
+            </tr>
+            <tr>
+                <td align="right">密码:</td>
+                <td><input type="password" id="pwd"></td>
+            </tr>
+            <tr>
+                <td align="right">确认密码:</td>
+                <td><input type="password" id="pwdcfm"></td>
+            </tr>
+            <tr>
+                <td align="right">性别:</td>
+                <td>
+                    <label for="male">男</label><input type="radio" id="male" name="gender" checked value="男">
+                    <label for="female">女</label><input type="radio" id="female" name="gender" value="女">
+                </td>
+            </tr>
+            <tr>
+                <td align="right">爱好:</td>
+                <td>
+                    <input type="checkbox" name="hobby" value="阅读">阅读
+                    <input type="checkbox" name="hobby" value="电影" checked>电影
+                    <input type="checkbox" name="hobby" value="音乐">音乐
+                    <input type="checkbox" name="hobby" value="运动">运动
+                    <input type="checkbox" name="hobby" value="全选" onclick="checkAll()">全选
+                </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><input type="button" value="注册" onclick="reg()">&nbsp;
+                    <input type="button" value="清空" onclick="clearValue()"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="msg" style="line-height: 25px;"></td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+<script>
+    var usernameEle = document.getElementById("username");
+    var pwdEle = document.getElementById("pwd");
+    var pwdcfm = document.getElementById("pwdcfm");
+    var maleEle = document.getElementById("male");
+    var femaleEle = document.getElementById("female");
+    var hobbyEles = document.getElementsByName("hobby");
+
+    //单选
+    for (var i = 0; i < hobbyEles.length - 1; i++) {
+        hobbyEles[i].addEventListener('click', function() {
+            var flag = true;
+            for (var j = 0; j < hobbyEles.length - 1; j++) {
+                if (hobbyEles[j].checked == false) {
+                    flag = false;
+                }
+            }
+            if (flag) {
+                hobbyEles[hobbyEles.length - 1].checked = true;
+            } else {
+                hobbyEles[hobbyEles.length - 1].checked = false;
+            }
+        })
+    }
+    //全选
+    function checkAll() {
+        if (hobbyEles[hobbyEles.length - 1].checked) {
+            for (var i = 0; i < hobbyEles.length; i++) {
+                hobbyEles[i].checked = true;
+            }
+        } else {
+            for (var i = 0; i < hobbyEles.length; i++) {
+                hobbyEles[i].checked = false;
+            }
+        }
+    }
+
+    function reg() {
+        //补充注册信息获取代码
+        var msg = document.querySelector(".msg");
+        var name = usernameEle.value;
+        var sex;
+        if (maleEle.checked) {
+            sex = "男";
+        } else if (femaleEle.checked) {
+            sex = "女";
+        }
+        var favor = "";
+        for (var i = 0; i < hobbyEles.length; i++) {
+            if (hobbyEles[i].checked) {
+                favor += hobbyEles[i].value + " ";
+            }
+        }
+        var str = "您的注册信息如下<br>";
+        str += "姓名：" + name + "<br>";
+        str += "性别：" + sex + "<br>";
+        str += "爱好：" + favor + "<br>";
+        msg.innerHTML = str;
+    }
+
+
+    function clearValue() {
+        usernameEle.value = "";
+        pwdEle.value = "";
+        pwdcfm.value = "";
+        maleEle.checked = false;
+        femaleEle.checked = false;
+        for (var i = 0; i < hobbyEles.length; i++) {
+            hobbyEles[i].checked = false;
+        }
+    }
+</script>
+
+</html>

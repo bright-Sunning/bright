@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var arr1 = [12, 15, 25, 10, 18];
+    var arr2 = [25, 12, 19, 21, 33];
+    var arr3 = [];
+    var flag = false;
+
+    for (var i = 0; i < arr1.length; i++) {
+        flag = false;
+        for (var j = 0; j < arr2.length; j++) {
+            if (arr1[i] == arr2[j]) {
+                flag = true;
+                for (var k = 0; k < arr3.length; k++) {
+                    if (arr1[i] == arr3[k]) {
+                        flag = false;
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+        if (flag) {
+            arr3.push(arr1[i]);
+        }
+    }
+    document.write(arr1 + "<br/>");
+    document.write(arr2 + "<br/>");
+    document.write(arr3);
+</script>
+
+</html>

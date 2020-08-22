@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var arr1 = [18, 25, 36, 44, 40];
+    var arr2 = [16, 25, 31, 44, 45, 60];
+    var count = 0;
+    for (var i = 0; i < arr1.length; i++) {
+        for (var j = 0; j < arr2.length; j++) {
+            if (arr1[i] == arr2[j])
+                count++;
+        }
+    }
+    document.write("第一个数组的元素是：<br/>");
+    document.write(`${arr1}<br/>`);
+    document.write("第二个数组的元素是：<br/>");
+    document.write(`${arr2}<br/>`);
+    document.write(`共${count}个元素相同`);
+</script>
+
+</html>

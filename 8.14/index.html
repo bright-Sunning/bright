@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select name="prov" id="prov">
+        <option></option>
+    </select>
+    <select name="city" id="city"></select>
+    <select name="street" id="street"></select>
+    <div></div>
+</body>
+<script src="js/jQuery.js"></script>
+<script>
+    $(function() {
+        changeProv();
+        // $("#prov").change(changeCity())
+        // $("#city").change(changeStreet())
+
+        function changeProv(x) {
+            $.ajax({
+                url: "https://restapi.amap.com/v3/config/district?key=234f31163b762300c0d8d647f8877272",
+                type: "GET",
+                data: {
+
+                },
+                dataType: "jsonp",
+                success: function(result) {
+                    var prov = result.districts[0].districts;
+                    var str = "";
+                    console.log(prov)
+                    for (var i = 0; i < prov.length; i++) {
+                        str += "<option>" + prov[i].name + "</option>";
+                    }
+                    $("div").text(JSON.stringify(result))
+                },
+                error: function() {
+                    alert("请求错误")
+                }
+            })
+        }
+
+        function changeCity() {
+            $.ajax({
+                url: "https://restapi.amap.com/v3/config/district?key=234f31163b762300c0d8d647f8877272&keywords=" + $("#prov").val(),
+                type: "GET",
+                data: {
+
+                },
+                dataType: "jsonp",
+                success: function(result) {
+                    var city = result.districts[0].districts;
+                    var str = "";
+                    for (var i = 0; i < city.length; i++) {
+                        str += "<option>" + city[i].name + "</option>";
+                    }
+                    $("#city").html(str);
+                    changeStreet();
+                },
+                error: function() {
+                    alert("请求错误")
+                }
+            })
+        }
+
+        function changeStreet() {
+            $.ajax({
+                url: "https://restapi.amap.com/v3/config/district?key=234f31163b762300c0d8d647f8877272&keywords=" + $("#city").val(),
+                type: "GET",
+                data: {
+
+                },
+                dataType: "jsonp",
+                success: function(result) {
+                    var street = result.districts[0].districts;
+                    var str = "";
+                    for (var i = 0; i < street.length; i++) {
+                        str += "<option>" + street[i].name + "</option>";
+                    }
+                    console.log(street)
+                    $("#street").html(str);
+                },
+                error: function() {
+                    alert("请求错误")
+                }
+            })
+        }
+    })
+</script>
+
+</html>

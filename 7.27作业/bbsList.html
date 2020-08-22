@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>课工场论坛列表</title>
+    <link href="css/bbs.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="bbs">
+        <header onclick="fatie()"><span>我要发帖</span></header>
+        <section>
+            <ul></ul>
+        </section>
+        <div class="post">
+            <input class="title" placeholder="请输入标题（1-50个字符）"> 所属版块：
+            <select>
+                <option>请选择版块</option>
+                <option>电子书籍</option>
+                <option>新课来了</option>
+                <option>新手报到</option>
+                <option>职业规划</option>
+            </select>
+            <textarea class="content"></textarea>
+            <input class="btn" value="发布" onclick="pub()">
+        </div>
+    </div>
+</body>
+<script>
+    // 获取发帖功能区和已发帖展示区
+    var a = document.getElementsByClassName("post")[0];
+    var b = document.getElementsByTagName("ul")[0];
+
+    // 单击我要发贴即显示发帖功能区,再次单击则隐藏
+    function fatie() {
+        if (a.style.display == "block") {
+            a.style.display = "none";
+            b.style.display = "block";
+        } else {
+            a.style.display = "block";
+            b.style.display = "none";
+        }
+    }
+
+
+    // 发帖
+    function pub() {
+
+        // 单击后隐藏发帖功能区并显示已发帖展示区
+        a.style.display = "none";
+        b.style.display = "block";
+
+        // 先创建好已发帖展示所需要的各个节点
+        var li = document.createElement("li");
+        var div = document.createElement("div");
+        var img = document.createElement("img");
+        var h1 = document.createElement("h1");
+        var p = document.createElement("p");
+        var ul = document.getElementsByTagName("ul")[0];
+
+        // 通过appendChild按结构将各个节点拼接起来,得到最终的父节点li
+        div.appendChild(img);
+        li.appendChild(div);
+        li.appendChild(h1);
+        li.appendChild(p);
+        ul.appendChild(li);
+
+        // 设置各个节点的内容:头像,所属板块等
+        img.src = "images/tou0" + parseInt(Math.random() * 4 + 1) + ".jpg";
+        h1.innerText = document.querySelector(".title").value;
+        var str = "";
+        str += "所属版块：" + document.querySelector("select").value + "<br/>";
+        var date = new Date();
+        date = date.toLocaleString();
+        str += "发布时间：" + date;
+        p.innerHTML = str;
+    }
+</script>
+
+</html>
