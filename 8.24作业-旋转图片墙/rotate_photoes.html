@@ -88,16 +88,16 @@
         var deg = 0;
 
         function rotate() {
-            deg += 5;
+            deg += 1;
             $("#rotate").css("transform", `rotateX(-1deg) rotateY(${deg}deg)`)
         }
 
-        var timer = setInterval(rotate, 100);
+        var timer = setInterval(rotate, 40);
 
         $("li").hover(function() {
             clearInterval(timer);
         }, function() {
-            timer = setInterval(rotate, 100)
+            timer = setInterval(rotate, 40)
         })
     })
 </script>
