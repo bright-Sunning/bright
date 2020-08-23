@@ -1,0 +1,2 @@
+git clone https://github.com/bright-Sunning/bright.git      //¿ËÂ¡
+git.exe pull --progress -v --no-rebase "origin"                   //¸üÐÂ
