@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        img {
+            width: 200px;
+            height: 150px;
+        }
+        
+        .prespective {
+            perspective: 1200px;
+        }
+        
+        ul {
+            transform-style: preserve-3d;
+            width: 300px;
+            margin: 100px auto;
+            transform: rotateX(-1deg) rotateY(0deg);
+            list-style: none;
+        }
+        
+        li {
+            transform-origin: bottom;
+            position: absolute;
+        }
+        
+        li:nth-child(1) {
+            transform: rotateY(100deg) translateZ(400px);
+        }
+        
+        li:nth-child(2) {
+            transform: rotateY(145deg) translateZ(400px);
+        }
+        
+        li:nth-child(3) {
+            transform: rotateY(190deg) translateZ(400px);
+        }
+        
+        li:nth-child(4) {
+            transform: rotateY(235deg) translateZ(400px);
+        }
+        
+        li:nth-child(5) {
+            transform: rotateY(280deg) translateZ(400px);
+        }
+        
+        li:nth-child(6) {
+            transform: rotateY(325deg) translateZ(400px);
+        }
+        
+        li:nth-child(7) {
+            transform: rotateY(370deg) translateZ(400px);
+        }
+        
+        li:nth-child(8) {
+            transform: rotateY(415deg) translateZ(400px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="prespective">
+        <ul id="rotate">
+            <li><img src="img/1.jpg" alt=""></li>
+            <li><img src="img/2.jpg" alt=""></li>
+            <li><img src="img/3.jpg" alt=""></li>
+            <li><img src="img/4.jpg" alt=""></li>
+            <li><img src="img/5.jpg" alt=""></li>
+            <li><img src="img/6.jpg" alt=""></li>
+            <li><img src="img/7.jpg" alt=""></li>
+            <li><img src="img/8.jpg" alt=""></li>
+        </ul>
+    </div>
+
+</body>
+<script src="js/jQuery.js"></script>
+<script>
+    $(function() {
+        var deg = 0;
+
+        function rotate() {
+            deg += 5;
+            $("#rotate").css("transform", `rotateX(-1deg) rotateY(${deg}deg)`)
+        }
+
+        var timer = setInterval(rotate, 100);
+
+        $("li").hover(function() {
+            clearInterval(timer);
+        }, function() {
+            timer = setInterval(rotate, 100)
+        })
+    })
+</script>
+
+</html>
