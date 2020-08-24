@@ -26,17 +26,15 @@
             </div>
             <!-- 时间 -->
             <div class="time">
-                <div class="current"></div>
-                <div> / </div>
-                <div class="total"></div>
+                <span class="current"></div>
+                <span> / </span>
+                <span class="total"></span>
             </div>
             <!-- 音量 -->
-            <div class="voice">
-                <div class="progress"></div>
-                <div class="circle"></div>
-            </div>
+                <span class="progress"></span>
+                <span class="circle"></span>
             <!-- 全屏按钮 -->
-            <div class="fullScreen"></div>
+            <span class="fullScreen"></span>
         </div>
     </div>
 
@@ -63,6 +61,12 @@
     //进度条宽度设置
     document.querySelector(".bar").style.width = video.videoWidth*0.6 + "px";
 
-    
+    video.ondurationchange = function(){
+        var d = video.duration;
+        var c = video.currentTime;
+        document.querySelector(".progress").style.width = d/c*100+"%";
+        console.log(1)
+    }
+
 </script>
 </html>

@@ -28,3 +28,9 @@
     background: red;
     border-radius: 50%;
 }
+.bar .progress{
+    border-radius: 10px;
+    height: 20px ;
+    width: 30px;
+    background: pink;
+}
