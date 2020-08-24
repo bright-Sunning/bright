@@ -1,0 +1,30 @@
+.container .play div{
+    float: left;;
+}
+.container .play::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.play{
+    height: 30px;
+    background: #ccc;
+}
+.btn{
+    width: 30px;
+    height: 30px;
+    background: url("../img/play.png") no-repeat center;
+    background-size: contain;
+}
+.bar{
+    margin-top: 5px;
+    border-radius: 10px;
+    height: 20px;
+    background: black;
+}
+.bar .circle{
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+}

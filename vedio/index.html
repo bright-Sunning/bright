@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- 视频主体 -->
+        <video src="video.webm" id="video"></video>
+        
+        <!-- 播放控件 -->
+        <div class="play">
+            <!-- 播放按钮 -->
+            <div class="btn"></div>
+            <!-- 进度条 -->
+            <div class="bar">
+                <!-- 进度 -->
+                <div class="progress"></div>
+                <div class="circle"></div>
+            </div>
+            <!-- 时间 -->
+            <div class="time">
+                <div class="current"></div>
+                <div> / </div>
+                <div class="total"></div>
+            </div>
+            <!-- 音量 -->
+            <div class="voice">
+                <div class="progress"></div>
+                <div class="circle"></div>
+            </div>
+            <!-- 全屏按钮 -->
+            <div class="fullScreen"></div>
+        </div>
+    </div>
+
+
+
+</body>
+
+<script>
+    // 获取视频对象并给播放控件设置宽度
+    var video = document.getElementById("video");
+    document.getElementsByClassName("play")[0].style.width = video.videoWidth+"px";
+    
+    // 播放按钮
+    document.querySelector(".btn").onclick = function(){
+        if(video.paused){
+            document.querySelector(".btn").style.backgroundImage = 'url("/img/pause.png")';
+            video.play();
+        }else{
+            document.querySelector(".btn").style.backgroundImage = 'url("/img/play.png")';
+            video.pause();
+        }
+    }
+
+    //进度条宽度设置
+    document.querySelector(".bar").style.width = video.videoWidth*0.6 + "px";
+
+    
+</script>
+</html>
