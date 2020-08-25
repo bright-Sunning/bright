@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="x" style="border: 1px soild black;" height="800" width="800"></canvas>
+</body>
+<script>
+    /** @type{HTMLCanvasElement} */
+
+    // 黑色半圆
+    var x = document.getElementById("x");
+    var ctx = x.getContext("2d")
+    ctx.arc(200,200,100,Math.PI/2,Math.PI*3/2,true);
+    ctx.stroke();
+    ctx.fillStyle = "black";
+    ctx.fill();
+
+
+    // 白色小半圆
+    ctx.beginPath();
+    ctx.arc(200,150,50,Math.PI/2,Math.PI*3/2,true);
+    ctx.fillStyle = "white";
+    ctx.fill();
+
+    // 黑色小半圆
+    ctx.beginPath();
+    ctx.arc(200,250,50,Math.PI*3/2,Math.PI*2,true);
+    ctx.fillStyle = "black";
+    ctx.fill();
+
+    // 边框
+    ctx.beginPath();
+    ctx.arc(200,200,100,0,Math.PI*2,false);
+    ctx.lineWidth = 2
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+
+    // 黑色小圆
+    ctx.beginPath();
+    ctx.arc(200,150,10,0,Math.PI*2,true);
+    ctx.fillStyle = "black";
+    ctx.fill();
+
+    // 白色小圆
+    ctx.beginPath();
+    ctx.arc(200,250,10,0,Math.PI*2,true);
+    ctx.fillStyle = "white";
+    ctx.fill();
+
+</script>
+</html>

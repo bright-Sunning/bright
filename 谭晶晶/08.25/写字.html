@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="x" style="border: 1px soild black;" height="800" width="800"></canvas>
+</body>
+<script>
+     /** @type{HTMLCanvasElement} */
+    var x = document.getElementById("x");
+    var ctx = x.getContext("2d");
+    ctx.fillStyle = "skyblue";
+    ctx.fillRect(0,0,800,800);
+    
+    x.onmousedown = function(){
+        x.addEventListener("mousemove",brush)
+    }
+
+    x.onmouseup = function(){
+        x.removeEventListener("mousemove",brush)
+    }
+
+    function brush(e){
+        ctx.clearRect(e.offsetX,e.offsetY,80,80)
+    }
+
+</script>
+</html>
