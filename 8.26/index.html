@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="400" height="400" style="border: 1px solid black;"></canvas>
+</body>
+<script>
+    /**@type{HTMLCanvasElement}*/
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+
+    // 画出五环
+    // 蓝环
+    ctx.arc(80, 80, 50, 0, Math.PI * 2)
+    ctx.strokeStyle = "#3d009f";
+    ctx.lineWidth = 10;
+    ctx.stroke();
+
+    // 黑环
+    ctx.beginPath();
+    ctx.arc(200, 80, 50, 0, Math.PI * 2)
+    ctx.strokeStyle = "#251715";
+    ctx.lineWidth = 10;
+    ctx.stroke();
+
+    // 红环
+    ctx.beginPath();
+    ctx.arc(320, 80, 50, 0, Math.PI * 2)
+    ctx.strokeStyle = "#f80503";
+    ctx.lineWidth = 10;
+    ctx.stroke();
+
+    // 黄环
+    ctx.beginPath();
+    ctx.arc(140, 120, 50, 0, Math.PI * 2)
+    ctx.strokeStyle = "#ddff05";
+    ctx.lineWidth = 10;
+    ctx.stroke();
+
+    // 绿环
+    ctx.beginPath();
+    ctx.arc(260, 120, 50, 0, Math.PI * 2)
+    ctx.strokeStyle = "#26ff45";
+    ctx.lineWidth = 10;
+    ctx.stroke();
+
+    // 描边
+    // 蓝环
+    ctx.beginPath();
+    ctx.arc(80, 80, 50, 0, Math.PI / 2, true)
+    ctx.strokeStyle = "#3d009f";
+    ctx.lineWidth = 10;
+    ctx.stroke();
+
+    // 黑环
+    ctx.beginPath();
+    ctx.arc(200, 80, 50, Math.PI / 4, Math.PI * 2 / 3)
+    ctx.strokeStyle = "#251715";
+    ctx.lineWidth = 10;
+    ctx.stroke();
+
+    // 红环
+    ctx.beginPath();
+    ctx.arc(320, 80, 50, Math.PI, Math.PI * 2)
+    ctx.strokeStyle = "#f80503";
+    ctx.lineWidth = 10;
+    ctx.stroke();
+</script>
+
+</html>
