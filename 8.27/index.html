@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="800" height="800" style="border:1px solid black"></canvas>
+</body>
+<script>
+    /**@type{HTMLCanvasElement}*/
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.translate(400, 400);
+
+
+
+    setInterval(() => {
+        clock();
+    }, 1000);
+    function clock(){
+        ctx.restore();
+    ctx.beginPath();
+    ctx.clearRect(-400,-400,canvas.width,canvas.height);
+    ctx.arc(0, 0, 200, 0, Math.PI * 2);
+    ctx.lineWidth = 10;
+    ctx.strokeStyle = "skyblue";
+    ctx.stroke();
+    ctx.save();//保存设置
+
+    for (var i = 0; i < 12; i++) {
+        ctx.beginPath();
+        ctx.rotate(Math.PI / 6);
+        ctx.moveTo(0, -190);
+        ctx.lineTo(0, -175);
+        ctx.lineWidth = 5;
+        ctx.stroke();
+    }
+    for (var i = 0; i < 60; i++) {
+        ctx.beginPath();
+        ctx.rotate(Math.PI / 30);
+        ctx.moveTo(0, -190);
+        ctx.lineTo(0, -180);
+        ctx.lineWidth = 3;
+        ctx.stroke();
+    }
+        ctx.restore();//恢复设置
+        ctx.save();
+
+
+    var date = new Date();
+    var hour = date.getHours();
+    var minute = date.getMinutes();
+    var second = date.getSeconds();
+
+
+    // 秒针
+    ctx.beginPath();
+    ctx.rotate(Math.PI / 30 * second);
+    ctx.moveTo(0, -150);
+    ctx.lineTo(0, 0);
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.restore();
+    ctx.save();
+
+    // 分针
+    ctx.beginPath();
+    ctx.rotate(Math.PI / 30 * minute);
+    ctx.moveTo(0, -130);
+    ctx.lineTo(0, 0);
+    ctx.strokeStyle = "green";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.restore();//恢复设置
+    ctx.save();
+    // 时针
+    ctx.beginPath();
+    ctx.rotate(Math.PI / 6 * (hour+parseFloat(minute)/60));
+    ctx.moveTo(0, -110);
+    ctx.lineTo(0, 0);
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    }
+    
+</script>
+
+</html>

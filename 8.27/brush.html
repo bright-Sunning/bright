@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">刮奖</button>
+    <canvas id="myCanvas" width="320" height="160" style="border:1px solid black"></canvas>
+</body>
+<script>
+    /**@type{HTMLCanvasElement}*/
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var img = ["img/p_0.jpg", "img/p_1.jpg"]
+    var btn = document.getElementById("btn");
+    window.onload = function () {
+        var index = Math.floor(Math.random() * img.length);
+        canvas.style.background = `url(${img[index]})`
+    }
+    ctx.fillStyle = "#ccc";
+    ctx.fillRect(0, 0, 320, 160);
+    btn.onclick = function () {
+        window.location.reload();
+    }
+
+    document.onmousedown = function () {
+        canvas.onmousemove = function (e) {
+            ctx.beginPath();
+            ctx.globalCompositeOperation = 'destination-out';
+            ctx.arc(e.offsetX, e.offsetY, 20, 0, Math.PI * 2);
+            ctx.fillStyle = "white";
+            ctx.fill();
+        }
+    }
+    document.onmouseup = function () {
+        canvas.onmousemove = null;
+    }
+</script>
+
+</html>

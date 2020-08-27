@@ -1,2 +1,4 @@
 git clone https://github.com/bright-Sunning/bright.git      //¿ËÂ¡
 git.exe pull --progress -v --no-rebase "origin"                   //¸üÐÂ
+git config --global user.email "994980296@qq.com"
+git config --global user.name "bright"
