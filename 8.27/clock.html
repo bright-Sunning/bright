@@ -18,9 +18,14 @@
     ctx.translate(400, 400);
 
 
-    setInterval(() => {
-        clock();
-    }, 1000);
+    var img = new Image();
+    img.src = "img/bg.jpg";
+    img.onload = function() {
+        setInterval(() => {
+            clock();
+        }, 1000);
+    }
+
     function clock() {
         ctx.restore();
         ctx.beginPath();
@@ -29,22 +34,19 @@
         ctx.lineWidth = 10;
         ctx.strokeStyle = "skyblue";
         ctx.stroke();
-        ctx.save();//保存设置
+        ctx.save(); //保存设置
         ctx.clip();
-        var img = new Image();
-        img.src = "img/bg.jpg";
-        img.onload = function(){
-            ctx.drawImage(img,-400,-400,800,800);
+        ctx.drawImage(img, -400, -400, 800, 800);
 
-            for (var i = 0; i < 12; i++) {
-                ctx.beginPath();
-                ctx.rotate(Math.PI / 6);
-                ctx.moveTo(0, -190);
-                ctx.lineTo(0, -175);
-                ctx.lineWidth = 5;
-                ctx.stroke();
-            }
-            for (var i = 0; i < 60; i++) {
+        for (var i = 0; i < 12; i++) {
+            ctx.beginPath();
+            ctx.rotate(Math.PI / 6);
+            ctx.moveTo(0, -190);
+            ctx.lineTo(0, -175);
+            ctx.lineWidth = 5;
+            ctx.stroke();
+        }
+        for (var i = 0; i < 60; i++) {
             ctx.beginPath();
             ctx.rotate(Math.PI / 30);
             ctx.moveTo(0, -190);
@@ -52,7 +54,7 @@
             ctx.lineWidth = 3;
             ctx.stroke();
         }
-        ctx.restore();//恢复设置
+        ctx.restore(); //恢复设置
         ctx.save();
 
 
@@ -83,7 +85,7 @@
         ctx.lineWidth = 2;
         ctx.stroke();
 
-        ctx.restore();//恢复设置
+        ctx.restore(); //恢复设置
         ctx.save();
         // 时针
         ctx.beginPath();
@@ -93,12 +95,10 @@
         ctx.strokeStyle = "black";
         ctx.lineWidth = 2;
         ctx.stroke();
-        }
 
 
 
     }
-
 </script>
 
 </html>
