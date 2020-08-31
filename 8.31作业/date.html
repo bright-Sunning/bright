@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p></p>
+</body>
+<script>
+    var date = new Date();
+    var c = new Calender(date);
+    c.show();
+    c.setMonth(2);
+    c.setDate(29);
+    c.show()
+
+    function Calender(date) {
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var d = date.getDate();
+        this.show = function() {
+            document.querySelector("p").innerText = `${year}年${month}月${d}日`;
+        }
+        this.setMonth = function(m) {
+            if (m % 1 == 0 && m > 0 && m < 13) {
+                month = m;
+            } else {
+                alert('月份请输入1-12的整数')
+            }
+        }
+        this.setDate = function(d1) {
+            if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
+                if (month == 2) {
+                    if (d1 % 1 == 0 && d1 > 0 && d1 < 30) {
+                        d = d1;
+                    } else {
+                        alert('日期请输入1-29的整数')
+                    }
+                }
+            } else {
+                if (month == 2) {
+                    if (d1 % 1 == 0 && d1 > 0 && d1 < 29) {
+                        d = d1;
+                    } else {
+                        alert('日期请输入1-28的整数')
+                    }
+                }
+            }
+            if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+                if (d1 % 1 == 0 && d1 > 0 && d1 < 32) {
+                    d = d1;
+                } else {
+                    alert('日期请输入1-31的整数')
+                }
+            } else if (month != 2) {
+                if (d1 % 1 == 0 && d1 > 0 && d1 < 31) {
+                    d = d1;
+                } else {
+                    alert('日期请输入1-30的整数')
+                }
+            }
+        }
+    }
+</script>
+
+</html>
