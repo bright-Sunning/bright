@@ -8,6 +8,15 @@ body {
     background-color: #f9f9f9;
 }
 
+img:hover {
+    transform: scale(1.1);
+}
+
+img {
+    z-index: -1;
+    transition: all 1s;
+}
+
 a {
     color: gray;
     text-decoration: none;

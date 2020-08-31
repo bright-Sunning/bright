@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598719445347&di=5ee34ef747b292d042add35b435b8eb9&imgtype=0&src=http%3A%2F%2Fimg.51miz.com%2FElement%2F00%2F87%2F86%2F78%2F0ea60424_E878678_135d00cb.jpg%2521%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue%2Fformat%2Fjpg') no-repeat center;
+            height: 2875px;
+            background-size: cover;
+        }
+        
+        #canvas1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        #canvas2:hover {
+            cursor: pointer;
+        }
+        
+        #canvas2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <canvas id="canvas1" width="1200" height="1200"></canvas>
+        <canvas id="canvas2" width="1200" height="1200"></canvas>
+    </div>
+
+
+</body>
+<script>
+    /** @type{HTMLCanvasElement} */
+
+    // 画转盘的最外圈圆环
+    var canvas1 = document.getElementById("canvas1");
+    var ctx1 = canvas1.getContext('2d');
+    ctx1.lineWidth = 30;
+    ctx1.translate(600, 600)
+    ctx1.arc(0, 0, 570, 0, Math.PI * 2);
+    ctx1.strokeStyle = "white";
+    ctx1.stroke();
+
+    // 画各个奖项
+    var bg = ['#ff525e', '#67a5fc', '#bb9f77', '#f47555', '#fed543']
+    var price = ['8元', '88元', '188元', '388元', '888元']
+
+    function draw() {
+        for (var i = 0; i < bg.length; i++) {
+            ctx1.beginPath();
+            ctx1.rotate(2 * Math.PI / 5)
+            ctx1.moveTo(0, 0);
+            ctx1.strokeStyle = "red";
+            ctx1.arc(0, 0, 550, 0, 2 * Math.PI / 5);
+            ctx1.fillStyle = bg[i];
+            ctx1.fill();
+        }
+        ctx1.rotate(Math.PI / 10);
+        for (var i = 0; i < bg.length; i++) {
+            ctx1.beginPath();
+            ctx1.rotate(2 * Math.PI / 5)
+            ctx1.moveTo(0, 0);
+            ctx1.shadowColor = 'white';
+            ctx1.shadowOffsetX = 3;
+            ctx1.shadowOffsetX = -3;
+            ctx1.shadowOffsetY = 3;
+            ctx1.shadowOffsetY = -3;
+            ctx1.font = "100px bold 黑体"
+            ctx1.fillStyle = 'darkred';
+            ctx1.textAlign = 'center';
+            ctx1.fillText(price[i], 0, 450);
+        }
+
+    }
+    draw();
+
+    // 画开始按钮
+    var canvas2 = document.getElementById("canvas2");
+    var ctx2 = canvas2.getContext('2d');
+    ctx2.translate(600, 600)
+    ctx2.arc(0, 0, 300, 0, Math.PI * 2);
+    ctx2.fillStyle = "#ece3dc";
+    ctx2.fill();
+
+    ctx2.beginPath();
+    ctx2.moveTo(0, -350);
+    ctx2.lineTo(-50, -290);
+    ctx2.lineTo(50, -290);
+    ctx2.fill();
+
+    for (var i = 0; i < 8; i++) {
+        ctx2.beginPath();
+        ctx2.moveTo(0, 270);
+        ctx2.lineTo(0, 200);
+        ctx2.lineWidth = 8;
+        ctx2.strokeStyle = "#be9f79";
+        ctx2.rotate(Math.PI / 4);
+        ctx2.stroke();
+    }
+
+    var img = new Image();
+    img.src = 'img/timg.png';
+    img.onload = function() {
+        ctx2.beginPath();
+        ctx2.drawImage(img, -150, -150, 300, 300);
+    }
+
+    // 开始转盘事件
+    canvas2.onclick = start;
+
+    function start() {
+        // var count = Math.floor(Math.random() * 80) + 20;
+        // roll(count);
+        // canvas2.onclick = null;
+        var count = 0;
+        setInterval(() => {
+            count += 30;
+            canvas2.style.transform = `translate(-50%, -50%) rotateZ(${count}deg)`;
+        }, 100);
+    }
+
+    // 转盘事件
+    function roll(x) {
+        if (x > 0) {
+            x--;
+            setTimeout(function() {
+                ctx1.rotate(2 * Math.PI / 5);
+                draw();
+                roll(x);
+            }, 100);
+        } else {
+            canvas2.onclick = start;
+        }
+    }
+</script>
+
+</html>
