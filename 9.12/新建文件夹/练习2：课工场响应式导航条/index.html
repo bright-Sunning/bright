@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap-3.4.1-dist/css/bootstrap.css">
+    <script src="../bootstrap-3.4.1-dist/js/jquery-1.12.4.js"></script>
+    <script src="../bootstrap-3.4.1-dist/js/bootstrap.js"></script>
+    <style>
+        .navbar-form {
+            padding: 0 10px;
+        }
+        
+        .bg {
+            width: 80px;
+            background: url(image/logo.png) no-repeat right;
+            background-size: 100% 100%;
+        }
+        
+        .login {
+            top: 0;
+            right: 40%;
+            position: absolute;
+        }
+        
+        .login>li {
+            display: inline-block;
+        }
+        
+        .nav>li>a {
+            padding: 15px 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container title">
+        <nav class="navbar navbar-inverse row" role="navigation">
+            <ul class="nav navbar-nav login">
+                <li><a href="#">登录</a></li>
+                <li><a href="#">注册</a></li>
+            </ul>
+            <div class="container-fluid col-sm-7">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+                        <span class="sr-only">切换导航</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand bg" href="#"></a>
+                </div>
+                <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">入门课</a></li>
+                        <li><a href="#">岗位课</a></li>
+                        <li><a href="#">技能库</a></li>
+                        <li><a href="#">微社区</a></li>
+                        <li><a href="#">学员 <span class="nav-btn btn-danger btn-xs">new</span></a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="container-fluid col-sm-5 col-sm-push-0">
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <form class="navbar-form navbar-left" role="search">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="请输入要搜索的内容">
+                                </div>
+                                <button type="submit" class="btn btn-success">搜索</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </nav>
+    </div>
+
+</body>
+
+</html>

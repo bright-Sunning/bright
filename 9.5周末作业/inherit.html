@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function Person(n, a, g) {
+        this.name = n;
+        this.age = a;
+        this.genda = g;
+    }
+    Person.prototype.work = function() {
+        console.log(this.name + "正在工作");
+    }
+
+    Person.prototype.greeting = function() {
+        console.log(this.name + "向你问好");
+    }
+
+    function Singer(m) {
+        this.music = m;
+    }
+
+    Singer.prototype = new Person('Tom', 20, 'male');
+    Singer.prototype.construtor = Singer;
+    Singer.prototype.performance = function() {
+        console.log(this.name + '正在演奏' + this.music)
+    }
+
+    var singer = new Singer('sky');
+</script>
+
+</html>

@@ -1,0 +1,35 @@
+ul li {
+    box-shadow: 10px 0 rgba(0, 0, 0, 0.2) inset;
+    text-align: left;
+    text-indent: 2em;
+    width: 100%;
+    height: 60px;
+}
+
+ul li p {
+    margin-left: 40px;
+    display: inline-block;
+}
+
+ul li {
+    display: none;
+}
+
+ul li:hover {
+    animation: none;
+}
+
+ul li img {
+    border-radius: 1;
+    margin-top: 15px;
+}
+
+ul li:first-child {
+    text-indent: 0;
+    display: block;
+    box-shadow: none;
+}
+
+ul li:first-child img {
+    border-radius: 0;
+}

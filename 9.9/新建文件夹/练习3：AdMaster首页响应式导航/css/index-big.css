@@ -1,0 +1,19 @@
+@media all and(min-width:800px) {
+  ul {
+    width:99%;
+    height: 100px;
+    display: flex;
+    background-color: #231f20;
+    border:1px solid red;
+    
+  }
+  ul li {
+    width:20%;
+    justify-content:center;   
+    height: 30px;
+    text-align: center;
+    position: relative;
+    border:1px solid red;
+    color:white;
+  }
+}

@@ -1,0 +1,15 @@
+ul li {
+    text-align: left;
+    text-indent: 2em;
+    width: 50%;
+    height: 100px;
+}
+
+ul li p {
+    margin-left: 40px;
+    display: inline-block;
+}
+
+ul li:hover {
+    animation: none;
+}
